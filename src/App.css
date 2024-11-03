@@ -1,0 +1,64 @@
+/* Reset custom App classes and utilize Bootstrap where applicable */
+
+.App {
+  text-align: center;
+  min-height: 100vh; /* Make sure the content covers the viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa; /* Use a light background for better readability */
+}
+
+.App-header {
+  background-color: #343a40; /* Use Bootstrap's dark theme color */
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.App-logo {
+  height: 10rem; /* Adjust size for better scaling */
+  margin-bottom: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional custom styles for further customization */
+
+.container {
+  max-width: 960px; /* Set a container size to limit width */
+  padding: 20px;
+}
+
+.text-large {
+  font-size: 1.5rem; /* Custom text class */
+  font-weight: 600;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
