@@ -1,0 +1,49 @@
+/* Background image for hero section */
+.hero-section {
+    background:'url(${process.env.PUBLIC_URL}/images/self-parking-car-system-abstract-concept-illustration.jpg)') center center / cover no-repeat;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* dark overlay for better text readability */
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Styling notification */
+.notification-box {
+    max-width: 300px;
+    border-radius: 8px;
+    animation: fade-in-out 5s ease forwards;
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Button styling */
+.btn-primary, .btn-warning {
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover, .btn-warning:hover {
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}

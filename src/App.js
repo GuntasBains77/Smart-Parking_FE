@@ -6,6 +6,7 @@ import Feedback from './Feedback';
 import AboutUs from './AboutUs'; // Import AboutUs
 import WhyChooseUs from './WhyChooseUs'; // Import WhyChooseUs
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import PaymentSection from './PaymentSection';
 
 function App() {
     return (
@@ -33,6 +34,9 @@ function App() {
                                     <Link className="nav-link" to="/about-us">About Us</Link> {/* Add About Us Link */}
                                 </li>
                                 <li className="nav-item">
+                                    <Link className="nav-link" to="/payment">PaymentSection</Link>
+                                </li>
+                                <li className="nav-item">
                                     <Link className="nav-link" to="/why-choose-us">Why Choose Us</Link> {/* Add Why Choose Us Link */}
                                 </li>
                             </ul>
@@ -47,6 +51,7 @@ function App() {
                         <Route path="/reservation" element={<Reservation />} />
                         <Route path="/feedback" element={<Feedback />} />
                         <Route path="/about-us" element={<AboutUs />} /> {/* Add About Us Route */}
+                        <Route path="/payment" element={<PaymentSection />} />
                         <Route path="/why-choose-us" element={<WhyChooseUs />} /> {/* Add Why Choose Us Route */}
                     </Routes>
                 </div>

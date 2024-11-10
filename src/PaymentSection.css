@@ -1,0 +1,122 @@
+/* PaymentSection.css */
+* {
+    text-align: left;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.upper {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login label {
+    font-size: 14px;
+}
+
+.login input {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.login img {
+    width: 80px;
+    height: auto;
+}
+
+.login a {
+    font-size: 12px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.welcome-message {
+    text-align: justify;
+    background-color: rgb(205, 217, 222);
+    padding: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 166, 255);
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header img {
+        margin-bottom: 10px;
+    }
+}

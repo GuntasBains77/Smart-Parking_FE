@@ -14,7 +14,7 @@ function Reservation() {
     const [paymentConfirmed, setPaymentConfirmed] = useState(false);
     
 
-    const slots = Array.from({ length: 8 }, (_, i) => i + 1);
+    const slots = Array.from({ length: 4 }, (_, i) => i + 1);
 
     const handleSlotClick = (slot) => {
         setSelectedSlot(slot);
@@ -66,6 +66,10 @@ function Reservation() {
                 setQrCode(qrData.qrCode);
                 setPaymentId(1);
                 setShowModal(true);
+
+                setTimeout(() => {
+                    setShowModal(false);
+                }, 5000);
                
                 const paymentDetails = {
                     userId,
@@ -87,18 +91,20 @@ function Reservation() {
 
     const confirmPayment = async (paymentDetails) => {
         try {
-            const response = await fetch('http://localhost:3000/process-payment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(paymentDetails),
-            });
-            const data = await response.json();
-            console.log(data);
-            if (response.ok) {
-                // Handle success
-            } else {
-                // Handle error
-            }
+            setTimeout(async () => {
+                const response = await fetch('http://localhost:3000/process-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(paymentDetails),
+                });
+                const data = await response.json();
+                console.log(data);
+                if (response.ok) {
+                   
+                } else {
+                    // Handle error
+                }
+            }, 5000); // Delay of 5 seconds
         } catch (error) {
             console.error('Error confirming payment:', error);
         }
@@ -114,7 +120,7 @@ function Reservation() {
             const data = await response.json();
             console.log(JSON.stringify(response))
             if (response.ok) {
-                //pollPaymentStatus(paymentDetails?.paymentNumber);
+              //  pollPaymentStatus(paymentDetails?.paymentNumber);
                 console.log('Payment processed successfully:', data);
             } else {
                 console.error('Error processing payment:', data.message);
@@ -125,27 +131,27 @@ function Reservation() {
     };
     
 
-    const pollPaymentStatus = (paymentId) => {
-        if (!paymentId) return;
-        const intervalId = setInterval(() => {
-            fetch('http://localhost:3000/confirm-payment', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId, slotNumber: selectedSlot, paymentId })
-            })
-                .then((response) => response.json())
-                .then((data) => {
+   // const pollPaymentStatus = (paymentId) => {
+    //    if (!paymentId) return;
+    //    const intervalId = setInterval(() => {
+     //       fetch('http://localhost:3000/confirm-payment', {
+      //          method: 'POST',
+       //         headers: { 'Content-Type': 'application/json' },
+        //        body: JSON.stringify({ userId, slotNumber: selectedSlot, paymentId })
+         //   })
+           //     .then((response) => response.json())
+           //     .then((data) => {
                  
-                    if (data.payment && data.payment.paymentStatus === 'Confirmed') {
-                        setPaymentConfirmed(true);
-                        clearInterval(intervalId); // Stop polling when confirmed
+                    // if (data.payment && data.payment.paymentStatus === 'Confirmed') {
+                    //     setPaymentConfirmed(true);
+                    //     clearInterval(intervalId); // Stop polling when confirmed
 
                       
-                    }
-                })
-                .catch((error) => console.error('Polling error:', error));
-        }, 2000); // Poll every 5 seconds
-    };
+                    // }
+             //   })
+        //        .catch((error) => console.error('Polling error:', error));
+       // }, 2000); // Poll every 5 seconds
+   // };
 
     const handlePaymentOptionSelect = (option) => {
         setPaymentOption(option);
@@ -270,11 +276,7 @@ function Reservation() {
                     Payment confirmed successfully!
                 </div>
             )}
-            {!paymentConfirmed && qrCode && (
-                <div className="alert alert-warning">
-                    Waiting for payment confirmation...
-                </div>
-            )}
+            
 
             {/* Footer */}
             <footer className="bg-dark text-white py-3 mt-auto">

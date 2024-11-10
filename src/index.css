@@ -1,6 +1,9 @@
 /* CSS for Reservation Component */
 
 /* General styling */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f8f9fa;
